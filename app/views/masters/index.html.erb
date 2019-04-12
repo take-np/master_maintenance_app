@@ -1,0 +1,9 @@
+<h2>Masters#index</h2>
+
+<div class = 'masters_index_item'>
+  <% @masters.each do |master| %>
+    <%= link_to(master.file_name, "/masters/detail/#{master.id}") %>
+    <%= master.user_name %>
+    <%= master.created_at %>
+  <% end %>
+</div>

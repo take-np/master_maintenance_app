@@ -1,0 +1,12 @@
+
+<h1>Masters#new</h1>
+
+<h2>新しい立て替え払い日の登録</h2>
+<h3>Fileをアップロードしてください</h3>
+    <%= form_tag('/masters/register_csv', multipart: true) do%>
+        <%= file_field_tag 'upload'%>
+    
+    <%# <label for="">CSVアップロード</label>
+    <%= file_field :fileupload, :file%> 
+    <button type = "submit">CSVアップロード</button>
+    <% end %>
