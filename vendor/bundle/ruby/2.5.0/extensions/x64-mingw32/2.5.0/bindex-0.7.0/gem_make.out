@@ -1,0 +1,16 @@
+current directory: C:/Users/t.miyazawa/development/master_maintenance_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+C:/Ruby25-x64/bin/ruby.exe -r ./siteconf20190419-13384-biyemm.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/t.miyazawa/development/master_maintenance_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: C:/Users/t.miyazawa/development/master_maintenance_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+generating cruby-x64-mingw32.def
+compiling cruby.c
+linking shared-object skiptrace/cruby.so
+
+current directory: C:/Users/t.miyazawa/development/master_maintenance_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20190419-13384-2aa8oz/skiptrace

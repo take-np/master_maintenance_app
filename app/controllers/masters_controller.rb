@@ -1,5 +1,6 @@
 require 'byebug'
 require 'csv'
+require 'nkf'
 class MastersController < ApplicationController
   def top
   end
@@ -22,12 +23,8 @@ class MastersController < ApplicationController
     # ================================
     if params[:upload]
       uploaded_data = params[:upload]
-      p uploaded_data.class
-      p uploaded_data
-        # p uploaded_data.external_encoding
-      # p uploaded_data.internal_encoding
       @name = uploaded_data.original_filename
-      p @name 
+      # p uploaded_data.reaaad
       #================================
       # w'b'と指定することで、バイナリモードで開いている。
       #'W'だけの場合、["\x82" from ASCII-8BIT to UTF-8]のエラー
@@ -39,12 +36,12 @@ class MastersController < ApplicationController
       #   new_file.puts row
       # end
       # new_file.close
-
+      
       File.open('public/csv/' + @name, 'wb') do |file|
-        p file.external_encoding
-        p file.internal_encoding
-        # file.set_encoding("UTF-8")
-        file.write(uploaded_data.read)
+        # file.set_encoding(“UTF-8”)
+        data = uploaded_data.read
+        p data
+        file.write(data.encode('UTF-8', 'Shift_JIS'))
       end
       # byebug
       # File.write('public/csv/' + @name, uploaded_data.read, :encoding => Encoding::CP932)
@@ -58,15 +55,14 @@ class MastersController < ApplicationController
     else
       flash[:notice] = "ファイルが選択されていません"
       redirect_to('/masters/new')
+
       # [] = "アップロードするFileを選択してください"
     end
       
   end
   
-
   def new
   end
-
   def detail
     @master = Master.find_by(id: params[:id])
     @master_file = File.read("public/csv/#{@master.file_name}")
